@@ -1,7 +1,9 @@
 #!/bin/bash
 #internal vars
-git_user="Solinftec-TI"
-git_password="-28064212-Solinftec-Github"
+git_user="USER"
+git_password="PASSWORD"
+organization="organization"
+#alfred server url
 url="http://localhost:4212/v1"
 is_valid=0
 path_for_build=""
@@ -25,7 +27,7 @@ function build-src() {
 function make-clone-app() {
     echo -e "▶ Making clone $app_name "
     cd ${path_for_build}
-    git clone https://${git_user}:${git_password}@github.com/solinftec/${app_name}.git
+    git clone https://${git_user}:${git_password}@github.com/${organization}/${app_name}.git
     echo -e "▶ Trying build checkout to branch: $branch "
     cd ${app_name}
     git fetch
@@ -37,7 +39,7 @@ function make-clone-config() {
     echo -e "▶ Making clone of source-configuration "
     cd ../
     rm -R configuration || echo "▶ Remove source-configuration path"
-    git clone https://${git_user}:${git_password}@github.com/solinftec/configuration.git
+    git clone https://${git_user}:${git_password}@github.com/${organization}/configuration.git
 }
 
 function replace-configurations(){
@@ -50,7 +52,9 @@ function replace-configurations(){
         cp configuration/sgpa/yml/${branch}/${app_name}/config.properties ${app_name}/src/main/resources
     ;;
     js)
-        echo "implements pls"
+        cp configuration/sgpa/yml/${branch}/${app_name}/prod.config.js ${app_name}/
+        rm -Rf ${app_name}/api/${organization}/*
+        cp configuration/sgpa/yml/${branch}/${app_name}/maps/* ${app_name}/api/${organization}/
     ;;
     esac
 }
@@ -149,8 +153,8 @@ function start(){
     is_valid=0;
     build-src;
     make-clone-app;
-    #build-clone-config;
-    #replace-configurations;
+    make-clone-config;
+    replace-configurations;
 }
 
 function finish(){
