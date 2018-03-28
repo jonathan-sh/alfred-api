@@ -31,16 +31,18 @@ class AuthFilter(private val tokenService: TokenService,
         response.setHeader("Access-Control-Max-Age", "3600")
         response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding, Content-Encoding, " + appConstant.TOKEN_HEADER)
 
-        val authToken:String? = request.getHeader(appConstant.TOKEN_HEADER)
-        val uri:String = request.servletPath
-        if ( (OPEN_URI.contains(uri)) || (authToken!=null && tokenService.check(authToken)))
-        {
-            filterChain.doFilter(request, response)
-        }
-        else
-        {
-            response.sendError(401)
-        }
+        filterChain.doFilter(request, response)
+
+      // val authToken:String? = request.getHeader(appConstant.TOKEN_HEADER)
+      // val uri:String = request.servletPath
+      // if ( (OPEN_URI.contains(uri)) || (authToken!=null && tokenService.check(authToken)))
+      // {
+      //     filterChain.doFilter(request, response)
+      // }
+      // else
+      // {
+      //     response.sendError(401)
+      // }
 
     }
 }

@@ -1,7 +1,9 @@
 package org.ivfun.alfred.app.document
 
+import org.ivfun.alfred.app.usefull.enuns.SlaveLevel
 import org.ivfun.mrt.validation.annotation.IsRequiredToCreate
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
@@ -23,9 +25,8 @@ data class Slave
         val key_file: String? = null,
         @IsRequiredToCreate
         val root_path: String? = null,
-        @IsRequiredToCreate
         val branches: List<String>? = listOf(),
-        @IsRequiredToCreate
         val applications: List<String>? = listOf(),
+        val level: SlaveLevel? = SlaveLevel.PRODUCTION,
         val enable: Boolean? = true
 )

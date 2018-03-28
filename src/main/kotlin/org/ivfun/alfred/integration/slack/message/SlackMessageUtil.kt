@@ -20,7 +20,7 @@ object SlackMessageUtil
         fields.add(Field("machine", build.slave?.name + " | " + build.slave?.ip))
         fields.add(Field("application", build.application?.name + " | " + build.branch))
 
-        val color = when (build.status)
+        val color:String = when (build.status)
         {
             BuildStatus.DISCARDED -> "#000000"
             BuildStatus.WAITING -> "#ffcf00"

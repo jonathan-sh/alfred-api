@@ -14,18 +14,18 @@ import java.time.Duration
 @Document(collection = "build")
 data class Build
 (
-        @Id
-        val id: String? = null,
-        val id_friendly: Long? = null,
-        val application: Application? = null,
-        val branch: String? = null,
-        val gitHubWh: GitHubWh? = null,
-        val slave: Slave? = null,
-        var status: BuildStatus? = null,
-        val start: List<Int>? = null,
-        var finish: List<Int>? = null,
-        var artifact_file: String? = null,
-        var log_file: String? = null
+    @Id
+    val id: String? = null,
+    val id_friendly: Long? = null,
+    val application: Application? = null,
+    val branch: String? = null,
+    val gitHubWh: GitHubWh? = null,
+    val slave: Slave? = null,
+    var status: BuildStatus? = null,
+    val start: List<Int>? = null,
+    var finish: List<Int>? = null,
+    var artifact_file: String? = null,
+    var log_file: String? = null
 )
 {
     fun time(): Long = Duration.between(LdtUtc().fromArray(start), LdtUtc().fromArray(finish)).seconds
@@ -61,6 +61,12 @@ data class Build
     fun setSuccessfully()
     {
         status = BuildStatus.SUCCESSFULLY
+        finish = LdtUtc().nowArray()
+    }
+
+    fun setDeploy()
+    {
+        status = BuildStatus.IN_DEPLOY
         finish = LdtUtc().nowArray()
     }
 

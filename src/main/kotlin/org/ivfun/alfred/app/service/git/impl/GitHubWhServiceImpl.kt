@@ -42,7 +42,7 @@ class GitHubWhServiceImpl(val applicationRepository: ApplicationRepository,
                 val application: Application = applicationRepository.findByName(appName)
                 if (application.enable!! &&
                         slave.branches!!.contains(branch) &&
-                        slave.applications!!.contains(application.id))
+                        slave.applications!!.contains(application.name))
                 {
                     val next: Long = sequenceService.next("build", 1)
                     builds.add(Build(null, next, application, branch, gitHubWh, slave, BuildStatus.WAITING, LdtUtc().nowArray()))

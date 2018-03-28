@@ -1,8 +1,9 @@
 package org.ivfun.alfred.app.document
 
-import org.ivfun.alfred.app.usefull.enuns.ApplicationLevel
+
 import org.ivfun.mrt.validation.annotation.IsRequiredToCreate
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
@@ -19,8 +20,5 @@ data class Application
      val name: String? = null,
      @IsRequiredToCreate
      val type: String? = null,
-     @IsRequiredToCreate
-     val level: ApplicationLevel? = ApplicationLevel.DEVELOPMENT,
-     @IsRequiredToCreate
      val enable: Boolean? = true
 )

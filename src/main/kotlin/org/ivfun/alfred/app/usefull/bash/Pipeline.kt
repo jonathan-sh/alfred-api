@@ -66,7 +66,7 @@ object Pipeline
         }
         catch (e: Exception)
         {
-            println("DEPLOY ERROR : build = " + build.id)
+            println("IN_DEPLOY ERROR : build = " + build.id)
         }
 
 

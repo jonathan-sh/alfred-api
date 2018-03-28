@@ -1,6 +1,5 @@
 package org.ivfun.alfred.app.resource
 
-
 import org.ivfun.alfred.app.document.User
 import org.ivfun.alfred.app.service.security.AuthService
 import org.springframework.web.bind.annotation.*
@@ -18,4 +17,5 @@ class UserResource(val authService: AuthService)
 
     @PutMapping()
     fun update(@RequestBody user: User)=authService.update(user)
+
 }

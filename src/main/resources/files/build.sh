@@ -1,8 +1,8 @@
 #!/bin/bash
 #internal vars
-git_user="USER"
-git_password="PASSWORD"
-organization="organization"
+git_user="Solinftec-TI"
+git_password="-28064212-Solinftec-Github"
+organization="solinftec"
 #alfred server url
 url="http://localhost:4212/v1"
 is_valid=0
@@ -153,8 +153,8 @@ function start(){
     is_valid=0;
     build-src;
     make-clone-app;
-    make-clone-config;
-    replace-configurations;
+    #make-clone-config;
+    #replace-configurations;
 }
 
 function finish(){

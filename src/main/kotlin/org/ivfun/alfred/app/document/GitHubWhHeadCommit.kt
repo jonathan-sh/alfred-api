@@ -6,8 +6,8 @@ package org.ivfun.alfred.app.document
  **/
 data class GitHubWhHeadCommit
 (
-        val message: String? = null,
-        val timestamp: String? = null,
-        val url: String? = null
+    val message: String? = null,
+    val timestamp: String? = null,
+    val url: String? = null
 )
 

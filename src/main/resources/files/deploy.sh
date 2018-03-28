@@ -2,7 +2,7 @@
 #internal
 build_path=builds
 #external vars
-organization="organization"
+organization="solifftec"
 app_type=$1
 app_name=$2
 branch=$3
@@ -24,7 +24,7 @@ function extract-tar(){
 case ${app_type} in
         jar)
             extract-gz;
-            mkdir -p /${organization}/builded/
+            sudo mkdir -p /${organization}/builded/
             sudo cp -Rf ${root_path}/${build_path}/${app_name}.jar /${organization}/builded/
             service-restart
             ;;

@@ -6,6 +6,6 @@ package org.ivfun.alfred.app.document
  **/
 data class GitHubWhSender
 (
-        val login: String? = null,
-        val avatar_url: String? = null
+    val login: String? = null,
+    val avatar_url: String? = null
 )

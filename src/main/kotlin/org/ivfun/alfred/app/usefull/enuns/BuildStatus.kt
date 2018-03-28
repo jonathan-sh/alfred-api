@@ -12,5 +12,6 @@ enum class BuildStatus
     COMPLETED,
     SENDED,
     SUCCESSFULLY,
+    IN_DEPLOY,
     FAIL
 }
