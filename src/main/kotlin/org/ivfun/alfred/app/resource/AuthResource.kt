@@ -1,10 +1,9 @@
-package org.ivfun.som.security.resource
+package org.ivfun.alfred.app.resource
 
-import org.ivfun.som.security.service.TokenService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestHeader
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+
+import org.ivfun.alfred.app.document.User
+import org.ivfun.alfred.app.service.security.AuthService
+import org.springframework.web.bind.annotation.*
 
 /**
  * Created by: jonathan
@@ -12,11 +11,12 @@ import org.springframework.web.bind.annotation.RestController
  **/
 @RestController
 @RequestMapping(value = ["/auth"])
-class AuthResource(val service: TokenService)
+class AuthResource(val authService: AuthService)
 {
-    @GetMapping
-    fun get() = service.generateToken()
+    @GetMapping(value = ["/create-first-admin"])
+    fun createFirstAdminUser() =  authService.createFirstAdminUser()
 
-    @GetMapping(value = ["valid"])
-    fun getValid(@RequestHeader("x") token: String) = service.check(token)
+    @PostMapping()
+    fun login(@RequestBody user: User) = authService.doLogin(user)
+
 }

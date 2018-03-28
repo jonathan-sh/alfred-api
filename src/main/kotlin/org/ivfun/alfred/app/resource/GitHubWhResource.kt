@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController
  * DateTime: 2018-03-21 23:48
  **/
 @RestController
-@RequestMapping(value = ["git-hub"])
+@RequestMapping(value = ["/git-hub"])
 class GitHubWhResource(val gitHubWhService: GitHubWhService,
                        val gitHubWhRepository: GitHubWhRepository,
                        val responseTreatment: ResponseTreatment<GitHubWh>)

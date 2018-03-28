@@ -22,5 +22,5 @@ data class Application
      @IsRequiredToCreate
      val level: ApplicationLevel? = ApplicationLevel.DEVELOPMENT,
      @IsRequiredToCreate
-     val enable: Boolean? = false
+     val enable: Boolean? = true
 )

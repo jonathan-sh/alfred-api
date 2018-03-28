@@ -1,4 +1,4 @@
-package org.ivfun.alfred.app.service.security.impl
+package org.ivfun.alfred.app.service.security.configuration
 
 import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity

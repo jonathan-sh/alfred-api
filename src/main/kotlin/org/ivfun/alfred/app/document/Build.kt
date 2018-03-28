@@ -22,8 +22,8 @@ data class Build
         val gitHubWh: GitHubWh? = null,
         val slave: Slave? = null,
         var status: BuildStatus? = null,
-        val start: Array<Int>? = null,
-        var finish: Array<Int>? = null,
+        val start: List<Int>? = null,
+        var finish: List<Int>? = null,
         var artifact_file: String? = null,
         var log_file: String? = null
 )

@@ -1,6 +1,8 @@
 package org.ivfun.alfred.app.document
 
+import org.ivfun.alfred.app.usefull.enuns.UserLevel
 import org.ivfun.mrt.validation.annotation.IsRequiredToCreate
+import org.ivfun.mrt.validation.annotation.IsRequiredToUpdate
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -14,13 +16,22 @@ data class User
     @Id
     val id: String? = null,
     @IsRequiredToCreate
+    @IsRequiredToUpdate
     val name: String? = null,
     @IsRequiredToCreate
+    @IsRequiredToUpdate
     val email: String? = null,
     @IsRequiredToCreate
-    val password: String? = null,
+    @IsRequiredToUpdate
+    var password: String? = null,
     @IsRequiredToCreate
-    val enable: Boolean? = false,
+    @IsRequiredToUpdate
+    val level: UserLevel? = UserLevel.BASIC,
     @IsRequiredToCreate
-    val admin: Boolean? = false
+    @IsRequiredToUpdate
+    val enable: Boolean? = true
+
 )
+{
+    fun removePass() { password = null }
+}

@@ -1,4 +1,4 @@
-package org.ivfun.som.security.service
+package org.ivfun.alfred.app.service.security
 
 import org.ivfun.alfred.app.document.User
 
@@ -8,9 +8,9 @@ import org.ivfun.alfred.app.document.User
  **/
 interface TokenService
 {
-    fun generateToken(): Map<String, String>
+    fun generateToken(): String
 
     fun check(token: String): Boolean
 
-    fun generateToken(user: User): Map<String, String>
+    fun generateToken(user: User): String
 }

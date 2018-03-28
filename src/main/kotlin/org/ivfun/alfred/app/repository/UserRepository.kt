@@ -1,8 +1,9 @@
 package org.ivfun.alfred.app.repository
 
-import org.ivfun.alfred.app.document.Application
 import org.ivfun.alfred.app.document.User
+import org.ivfun.alfred.app.usefull.enuns.UserLevel
 import org.springframework.data.mongodb.repository.MongoRepository
+import java.util.*
 
 /**
  * Created by: jonathan
@@ -10,5 +11,9 @@ import org.springframework.data.mongodb.repository.MongoRepository
  **/
 interface UserRepository : MongoRepository<User, String>
 {
+    fun findByName(name:String):Optional<User>
 
+    fun findByEmail(email:String):Optional<User>
+
+    fun findByLevel(level:UserLevel):MutableList<User>
 }

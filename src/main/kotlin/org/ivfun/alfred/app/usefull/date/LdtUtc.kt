@@ -16,10 +16,10 @@ open class LdtUtc
 
     fun now(long: Long): LocalDateTime = zoneUTC.toLocalDateTime().plusSeconds(long)
 
-    fun nowArray(): Array<Int>
+    fun nowArray(): List<Int>
     {
         val ldt: LocalDateTime = zoneUTC.toLocalDateTime()
-        return arrayOf(ldt.year, ldt.monthValue, ldt.dayOfMonth, ldt.hour, ldt.minute, ldt.second)
+        return listOf(ldt.year, ldt.monthValue, ldt.dayOfMonth, ldt.hour, ldt.minute, ldt.second)
     }
 
     fun nowArray(long: Long): Array<Int>
@@ -28,7 +28,7 @@ open class LdtUtc
         return arrayOf(ldt.year, ldt.monthValue, ldt.dayOfMonth, ldt.hour, ldt.minute, ldt.second)
     }
 
-    fun fromArray(array: Array<Int>?): LocalDateTime
+    fun fromArray(array: List<Int>?): LocalDateTime
     {
         if (array != null && array.size > 4)
         {

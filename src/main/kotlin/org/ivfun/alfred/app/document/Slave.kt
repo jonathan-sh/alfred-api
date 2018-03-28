@@ -27,5 +27,5 @@ data class Slave
         val branches: List<String>? = listOf(),
         @IsRequiredToCreate
         val applications: List<String>? = listOf(),
-        val enable: Boolean? = false
+        val enable: Boolean? = true
 )
