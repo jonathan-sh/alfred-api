@@ -1,7 +1,7 @@
 package org.ivfun.alfred.app.repository
 
 import org.ivfun.alfred.app.document.Build
-import org.ivfun.alfred.app.usefull.BuildStatus
+import org.ivfun.alfred.app.usefull.enuns.BuildStatus
 import org.springframework.data.mongodb.repository.MongoRepository
 
 /**

@@ -1,8 +1,8 @@
 package org.ivfun.alfred.app.document
 
 import org.ivfun.alfred.app.service.build.impl.FeedBack
-import org.ivfun.alfred.app.usefull.BuildStatus
-import org.ivfun.alfred.app.usefull.LdtUtc
+import org.ivfun.alfred.app.usefull.date.LdtUtc
+import org.ivfun.alfred.app.usefull.enuns.BuildStatus
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Duration

@@ -57,7 +57,7 @@ object Pipeline
             val branch: String = build.branch!!
             val service: String = when (build.application.type)
             {
-                "jar" -> "$app_name.service"
+                "jar" -> "$app_name.security"
                 "war" -> "tomcat8"
                 "js" -> "apache2"
                 else -> "SERVICE NOT SPECIFIED"

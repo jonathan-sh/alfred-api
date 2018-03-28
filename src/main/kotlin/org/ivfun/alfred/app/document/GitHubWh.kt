@@ -1,6 +1,6 @@
 package org.ivfun.alfred.app.document
 
-import org.ivfun.alfred.app.usefull.GitHubWhStatus
+import org.ivfun.alfred.app.usefull.enuns.GitHubWhStatus
 
 /**
  * Created by: jonathan

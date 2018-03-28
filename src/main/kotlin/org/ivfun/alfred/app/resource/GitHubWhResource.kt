@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController
 class GitHubWhResource(val gitHubWhService: GitHubWhService,
                        val gitHubWhRepository: GitHubWhRepository,
                        val responseTreatment: ResponseTreatment<GitHubWh>)
-    : GenericResource<GitHubWh>(gitHubWhRepository, responseTreatment)
+: GenericResource<GitHubWh>(gitHubWhRepository, responseTreatment)
 {
 
     @PostMapping

@@ -16,10 +16,18 @@ spring:
     encoding:
       enabled: true
       charset: utf-8
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: solinftec.alfred@gmail.com
+    password: \\alfred
 
 alfred:
   back-url: http://127.0.0.1:4212/v1
   front-url: http://127.0.0.1:4212/v1
 
 slack:
-  wh-msg-url: https://hooks.slack.com/services/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
+  wh-msg-url: https://hooks.slack.com/services/~hash~
+
+config:
+  token-header: x-auth-token

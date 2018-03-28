@@ -1,4 +1,4 @@
-package org.ivfun.alfred.app.usefull
+package org.ivfun.alfred.app.usefull.date
 
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -14,9 +14,17 @@ open class LdtUtc
 
     fun now(): LocalDateTime = zoneUTC.toLocalDateTime()
 
+    fun now(long: Long): LocalDateTime = zoneUTC.toLocalDateTime().plusSeconds(long)
+
     fun nowArray(): Array<Int>
     {
         val ldt: LocalDateTime = zoneUTC.toLocalDateTime()
+        return arrayOf(ldt.year, ldt.monthValue, ldt.dayOfMonth, ldt.hour, ldt.minute, ldt.second)
+    }
+
+    fun nowArray(long: Long): Array<Int>
+    {
+        val ldt: LocalDateTime = zoneUTC.toLocalDateTime().plusSeconds(long)
         return arrayOf(ldt.year, ldt.monthValue, ldt.dayOfMonth, ldt.hour, ldt.minute, ldt.second)
     }
 

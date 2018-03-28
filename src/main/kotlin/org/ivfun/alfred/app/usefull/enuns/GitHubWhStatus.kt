@@ -1,4 +1,4 @@
-package org.ivfun.alfred.app.usefull
+package org.ivfun.alfred.app.usefull.enuns
 
 /**
  * Created by: jonathan

@@ -8,9 +8,9 @@ import org.ivfun.alfred.app.repository.BuildRepository
 import org.ivfun.alfred.app.repository.GitHubWhRepository
 import org.ivfun.alfred.app.repository.SlaveRepository
 import org.ivfun.alfred.app.service.git.GitHubWhService
-import org.ivfun.alfred.app.usefull.BuildStatus
-import org.ivfun.alfred.app.usefull.GitHubWhStatus
-import org.ivfun.alfred.app.usefull.LdtUtc
+import org.ivfun.alfred.app.usefull.date.LdtUtc
+import org.ivfun.alfred.app.usefull.enuns.BuildStatus
+import org.ivfun.alfred.app.usefull.enuns.GitHubWhStatus
 import org.ivfun.alfred.integration.slack.SlackMessage
 import org.ivfun.mrt.sequence.impl.SequenceService
 import org.springframework.http.ResponseEntity

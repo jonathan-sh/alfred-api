@@ -16,5 +16,5 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping(value = ["/application"])
 class ApplicationResource(applicationRepository: ApplicationRepository,
                           responseTreatment: ResponseTreatment<Application>)
-    : GenericResource<Application>(applicationRepository, responseTreatment)
+: GenericResource<Application>(applicationRepository, responseTreatment)
 
