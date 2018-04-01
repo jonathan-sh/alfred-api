@@ -2,6 +2,7 @@ package org.ivfun.alfred.app.repository
 
 import org.ivfun.alfred.app.document.Application
 import org.springframework.data.mongodb.repository.MongoRepository
+import java.util.*
 
 /**
  * Created by: jonathan
@@ -9,6 +10,5 @@ import org.springframework.data.mongodb.repository.MongoRepository
  **/
 interface ApplicationRepository : MongoRepository<Application, String>
 {
-    fun findByName(name: String): Application
-
+    fun findByName(name: String): Optional<Application>
 }

@@ -117,4 +117,25 @@ class AuthServiceImpl(private val userRepository: UserRepository,
         }
         return responseTreatmentImpl.update(userRepository,user)
     }
+
+    override
+    fun findAll(): ResponseEntity<Any>
+    {
+        val findAll = userRepository.findAll()
+        findAll.forEach { item -> item.removePass() }
+        val mapOf = mapOf("users" to findAll)
+        return ResponseEntity<Any>(mapOf,HttpStatus.OK)
+    }
+
+    override
+    fun delete(id:String): ResponseEntity<Any>
+    {
+        var deleted: Boolean = false
+        val found = userRepository.findById(id)
+        found.ifPresent { user->
+            userRepository.delete(user)
+            deleted = true
+        }
+        return ResponseEntity<Any>(mapOf("deleted" to deleted),HttpStatus.OK)
+    }
 }

@@ -13,4 +13,6 @@ interface AuthService
     fun createFirstAdminUser(): ResponseEntity<Any>
     fun create(user: User): ResponseEntity<Any>
     fun update(user: User): ResponseEntity<Any>
+    fun findAll(): ResponseEntity<Any>
+    fun delete(id: String): ResponseEntity<Any>
 }

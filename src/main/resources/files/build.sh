@@ -74,14 +74,14 @@ function make-build-by-npm(){
   echo ""
   echo -e "● Aguarde. Esse processo pode demorar um pouco..."
   echo ""
-  sudo touch $npm_log_file
-  sudo chmod 777 $npm_log_file
-  sudo cp -Rf $path_for_libs/* .
+  sudo touch ${npm_log_file}
+  sudo chmod 777 ${npm_log_file}
+  sudo cp -Rf ${path_for_libs}/* .
   #sudo mkdir bower_components || echo "Diretoro do bower ja existe"
   sudo chmod 777 bower_components
-  sudo npm install && sudo echo "npm install its ok" >> $npm_log_file
-  bower install && sudo echo "bower install its ok" >> $npm_log_file
-  sudo gulp prod  && sudo echo "gulp prod its ok" >> $npm_log_file
+  sudo npm install && sudo echo "npm install its ok" >> ${npm_log_file}
+  bower install && sudo echo "bower install its ok" >> ${npm_log_file}
+  sudo gulp prod  && sudo echo "gulp prod its ok" >> ${npm_log_file}
   sudo echo "Options -Indexes. " | sudo tee .htaccess
 }
 

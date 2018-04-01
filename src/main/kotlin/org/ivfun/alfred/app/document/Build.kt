@@ -21,7 +21,7 @@ data class Build
     val branch: String? = null,
     val gitHubWh: GitHubWh? = null,
     val slave: Slave? = null,
-    var status: BuildStatus? = null,
+    var status: BuildStatus? =  BuildStatus.WAITING,
     val start: List<Int>? = null,
     var finish: List<Int>? = null,
     var artifact_file: String? = null,
@@ -32,13 +32,13 @@ data class Build
 
     fun setInProgress()
     {
-        status = BuildStatus.IN_PROGRESS
+        status = BuildStatus.BUILDING_ARTIFACT
         finish = LdtUtc().nowArray()
     }
 
     fun setToSend()
     {
-        status = BuildStatus.SENDED
+        status = BuildStatus.SENDING_ARTIFACT
         finish = LdtUtc().nowArray()
     }
 
@@ -51,7 +51,7 @@ data class Build
 
     fun setCompleted(feedBack: FeedBack)
     {
-        status = BuildStatus.COMPLETED
+        status = BuildStatus.BUILD_COMPLETED
         finish = LdtUtc().nowArray()
         log_file = feedBack.log
         artifact_file = feedBack.artifact
@@ -60,7 +60,7 @@ data class Build
 
     fun setSuccessfully()
     {
-        status = BuildStatus.SUCCESSFULLY
+        status = BuildStatus.RESTARTING_SERVICE
         finish = LdtUtc().nowArray()
     }
 
@@ -76,12 +76,4 @@ data class Build
         finish = LdtUtc().nowArray()
     }
 
-
-    fun setFail(feedBack: FeedBack)
-    {
-        status = BuildStatus.FAIL
-        finish = LdtUtc().nowArray()
-        log_file = feedBack.log
-        artifact_file = feedBack.artifact
-    }
 }

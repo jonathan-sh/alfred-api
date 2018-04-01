@@ -14,20 +14,20 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document(collection = "user")
 data class User
 (
-    @Id
+        @Id
     val id: String? = null,
-    @IsRequiredToCreate
+        @IsRequiredToCreate
     @IsRequiredToUpdate
     val name: String? = null,
-    @IsRequiredToCreate
+        @IsRequiredToCreate
     @IsRequiredToUpdate
     @Indexed(unique = true)
     val email: String? = null,
-    @IsRequiredToCreate
+        @IsRequiredToCreate
     @IsRequiredToUpdate
     var password: String? = null,
-    val level: UserLevel? = UserLevel.DEVELOPMENT,
-    val enable: Boolean? = true
+        val level: UserLevel? = UserLevel.DEVELOPER,
+        val enable: Boolean? = true
 
 )
 {

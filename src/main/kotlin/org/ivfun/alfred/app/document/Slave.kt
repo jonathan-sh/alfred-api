@@ -3,7 +3,6 @@ package org.ivfun.alfred.app.document
 import org.ivfun.alfred.app.usefull.enuns.SlaveLevel
 import org.ivfun.mrt.validation.annotation.IsRequiredToCreate
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**

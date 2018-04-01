@@ -1,6 +1,7 @@
 package org.ivfun.alfred.app.usefull.bash
 
 import org.ivfun.alfred.app.document.Build
+import kotlin.concurrent.thread
 
 object Pipeline
 {
@@ -16,7 +17,10 @@ object Pipeline
             val app_type: String = build.application.type!!
             val branch: String = build.branch!!
             val build_id: String = build.id!!
-            Shell.run("$build_sh $app_name $branch $app_type $build_id")
+
+            thread { Shell.run("$build_sh $app_name $branch $app_type $build_id")  }
+
+
         }
         catch (e: Exception)
         {

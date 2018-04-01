@@ -14,7 +14,7 @@ object SlackMessageUtil
         val author_icon = build.gitHubWh?.sender?.avatar_url
         val author_name = build.gitHubWh?.sender?.login + " | " + build.gitHubWh?.head_commit?.message
         val author_link = build.gitHubWh?.head_commit?.url
-        val title = build.status.toString().toLowerCase() + " | build : " + build.id_friendly + " | time : " + build.time() + "s"
+        val title = build.status.toString().toLowerCase() + " | build : " + build.id_friendly + " | total-time : " + build.time() + "s"
         val title_link = "$alfred_back_url/build/log/" + build.id
         val fields: MutableList<Field> = mutableListOf()
         fields.add(Field("machine", build.slave?.name + " | " + build.slave?.ip))
@@ -22,13 +22,14 @@ object SlackMessageUtil
 
         val color:String = when (build.status)
         {
-            BuildStatus.DISCARDED -> "#000000"
+            BuildStatus.DISCARDED -> "#ff00aa"
             BuildStatus.WAITING -> "#ffcf00"
-            BuildStatus.IN_PROGRESS -> "#125dee"
-            BuildStatus.SENDED -> "#a9a9a9"
-            BuildStatus.COMPLETED -> "#ff7845"
+            BuildStatus.BUILDING_ARTIFACT -> "#125dee"
+            BuildStatus.BUILD_COMPLETED -> "#7d52cc"
+            BuildStatus.SENDING_ARTIFACT -> "#707070"
             BuildStatus.FAIL -> "#ff2930"
-            BuildStatus.SUCCESSFULLY -> "#2ea664"
+            BuildStatus.RESTARTING_SERVICE -> "#2ea664"
+            BuildStatus.IN_DEPLOY -> "#00b2ff"
             else -> "#000000"
         }
         return listOf(Attachment(author_icon, author_link, author_name, color, title, title_link, fields))

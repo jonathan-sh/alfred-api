@@ -24,7 +24,7 @@ class BuildResource(val buildService: BuildService,
     fun getLog(@PathVariable id: String): String = buildService.getLog(id)
 
     @PostMapping(value = ["/feed-back"])
-    fun feedBack(@RequestBody feedBack: FeedBack) = buildService.saveFeedBack(feedBack)
+    fun feedBack(@RequestBody feedBack: FeedBack) = buildService.processFeedBack(feedBack)
 
 }
 

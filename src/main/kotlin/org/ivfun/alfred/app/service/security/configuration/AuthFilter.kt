@@ -1,9 +1,9 @@
 package org.ivfun.alfred.app.service.security.configuration
 
+import org.ivfun.alfred.app.service.security.TokenService
 import org.ivfun.alfred.app.usefull.AppConstant
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.web.filter.OncePerRequestFilter
-import org.ivfun.alfred.app.service.security.TokenService
 import java.io.IOException
 import javax.servlet.FilterChain
 import javax.servlet.ServletException
@@ -29,7 +29,7 @@ class AuthFilter(private val tokenService: TokenService,
         response.setHeader("Access-Control-Allow-Origin", "*")
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE, PATCH")
         response.setHeader("Access-Control-Max-Age", "3600")
-        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding, Content-Encoding, " + appConstant.TOKEN_HEADER)
+        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding, Content-Encoding, x-github-event, " + appConstant.TOKEN_HEADER)
 
         filterChain.doFilter(request, response)
 

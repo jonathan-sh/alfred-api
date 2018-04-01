@@ -8,17 +8,21 @@ app_name=$2
 branch=$3
 root_path=$4
 service=$5
+build_id=$6
 
 function service-restart(){
-   sudo service ${service} restart
+    echo -e "▶ Restart service "
+    sudo service ${service} restart
 }
 
 function extract-gz(){
-   sudo gzip -d ${root_path}/${build_path}/*.gz
+    echo -e "▶ Unzip GZ "
+    sudo gzip -d ${root_path}/${build_path}/*.gz
 }
 
 function extract-tar(){
-   sudo tar -zxf ${root_path}/${build_path}/*.tar
+    echo -e "▶ Unzip TAR "
+    sudo tar -zxf ${root_path}/${build_path}/*.tar
 }
 
 case ${app_type} in

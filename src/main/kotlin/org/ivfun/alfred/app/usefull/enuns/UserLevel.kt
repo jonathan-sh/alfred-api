@@ -7,5 +7,5 @@ package org.ivfun.alfred.app.usefull.enuns
 enum class UserLevel
 {
     ADMIN,
-    DEVELOPMENT,
+    DEVELOPER,
 }
