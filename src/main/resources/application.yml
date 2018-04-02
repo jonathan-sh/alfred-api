@@ -16,13 +16,3 @@ spring:
     encoding:
       enabled: true
       charset: utf-8
-
-alfred:
-  back-url: http://127.0.0.1:4212/v1
-  front-url: http://127.0.0.1:4212/v1
-
-slack:
-  wh-msg-url: https://hooks.slack.com/services/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
-
-config:
-  token-header: x-auth-token

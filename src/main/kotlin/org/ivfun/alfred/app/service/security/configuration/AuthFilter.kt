@@ -1,6 +1,5 @@
 package org.ivfun.alfred.app.service.security.configuration
 
-import org.ivfun.alfred.app.service.security.TokenService
 import org.ivfun.alfred.app.usefull.AppConstant
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.web.filter.OncePerRequestFilter
@@ -15,10 +14,9 @@ import javax.servlet.http.HttpServletResponse
  * DateTime: 2018-02-25 14:16
  **/
 @EnableWebSecurity
-class AuthFilter(private val tokenService: TokenService,
-                 private val appConstant: AppConstant) : OncePerRequestFilter()
+class AuthFilter(private val cerberus: Cerberus) : OncePerRequestFilter()
 {
-    private val OPEN_URI = listOf("/auth","/build","/git-hub")
+
 
     @Throws(ServletException::class, IOException::class)
     override fun doFilterInternal(request: HttpServletRequest,
@@ -26,23 +24,26 @@ class AuthFilter(private val tokenService: TokenService,
                                   filterChain: FilterChain)
     {
 
+        setHeaders(response)
+        if (cerberus.allow(request))
+        {
+
+            filterChain.doFilter(request, response)
+        }
+        else
+        {
+            response.sendError(401)
+        }
+
+    }
+
+    private fun setHeaders(response: HttpServletResponse)
+    {
         response.setHeader("Access-Control-Allow-Origin", "*")
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE, PATCH")
         response.setHeader("Access-Control-Max-Age", "3600")
-        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding, Content-Encoding, x-github-event, " + appConstant.TOKEN_HEADER)
-
-        filterChain.doFilter(request, response)
-
-      // val authToken:String? = request.getHeader(appConstant.TOKEN_HEADER)
-      // val uri:String = request.servletPath
-      // if ( (OPEN_URI.contains(uri)) || (authToken!=null && tokenService.check(authToken)))
-      // {
-      //     filterChain.doFilter(request, response)
-      // }
-      // else
-      // {
-      //     response.sendError(401)
-      // }
-
+        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding, Content-Encoding, "
+                + AppConstant.TOKEN_HEADER + ", "
+                + AppConstant.GIT_EVENT_HEADER)
     }
 }

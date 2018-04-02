@@ -11,7 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy
  * DateTime: 2018-02-25 14:24
  **/
 @EnableWebSecurity
-class Request()
+class Request
 : WebSecurityConfigurerAdapter()
 {
     override

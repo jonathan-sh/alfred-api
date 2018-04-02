@@ -9,5 +9,6 @@ import org.springframework.http.ResponseEntity
  **/
 interface GitHubWhService
 {
-    fun tryDoBuild(gitHubWh: GitHubWh): ResponseEntity<Any>
+    fun getList(): ResponseEntity<Any>
+    fun tryDoBuild(gitHubWh: GitHubWh, event: String): ResponseEntity<Any>
 }

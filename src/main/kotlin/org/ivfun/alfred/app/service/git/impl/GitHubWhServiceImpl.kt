@@ -33,11 +33,12 @@ class GitHubWhServiceImpl(val applicationRepository: ApplicationRepository,
     : GitHubWhService
 {
     override
-    fun tryDoBuild(gitHubWh: GitHubWh): ResponseEntity<Any>
+    fun tryDoBuild(gitHubWh: GitHubWh, event: String): ResponseEntity<Any>
     {
         val branch: String? = gitHubWh.ref?.replace("refs/heads/", "")
         gitHubWh.ref = branch
         gitHubWh.id_friendly = sequenceService.next("git-hub-wh", 1)
+        gitHubWh.event = event
         val appName: String? = gitHubWh.repository?.name
         val builds: ArrayList<Build> = ArrayList<Build>()
 
@@ -102,4 +103,9 @@ class GitHubWhServiceImpl(val applicationRepository: ApplicationRepository,
         }
     }
 
+    override fun getList(): ResponseEntity<Any>
+    {
+        val mapOf = mapOf("githubwhs" to gitHubWhRepository.findAll())
+        return  ResponseEntity<Any>(mapOf, HttpStatus.OK)
+    }
 }

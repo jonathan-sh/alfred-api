@@ -1,18 +1,14 @@
 package org.ivfun.alfred.app.usefull
 
-import org.springframework.context.annotation.Configuration
-import org.springframework.core.env.Environment
-
 /**
  * Created by: jonathan
  * DateTime: 2018-03-27 14:44
  **/
-@Configuration
-class AppConstant(final val environment: Environment)
+object AppConstant
 {
-    val ALFRED_FRONT_URL: String = environment.getProperty("alfred.front-url")!!
-    val ALFRED_BACK_URL: String = environment.getProperty("alfred.back-url")!!
-    val SLACK_WH_MSG_URL: String = environment.getProperty("slack.wh-msg-url")!!
-    val TOKEN_HEADER: String = environment.getProperty("config.token-header")!!
+    const val ALFRED_FRONT_URL: String = "http://127.0.0.1:4212/v1"
+    const val ALFRED_BACK_URL: String = "http://127.0.0.1:4212/v1"
+    const val SLACK_WH_MSG_URL: String = "https://hooks.slack.com/services/~hash~"
+    const val TOKEN_HEADER: String = "x-auth-token"
+    const val GIT_EVENT_HEADER: String = "x-github-event"
 }
-

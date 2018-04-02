@@ -19,7 +19,7 @@ class TokenServiceImpl : TokenService
 {
     private val secret: String = "28064212"
     private val expired: String = "expired-in"
-    private val expiration: Long = 300L
+    private val expiration: Long = 600L
 
     override
     fun generateToken():String

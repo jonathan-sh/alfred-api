@@ -1,7 +1,6 @@
 package org.ivfun.alfred.app.service.application.impl
 
 import org.ivfun.alfred.app.document.Application
-import org.ivfun.alfred.app.document.Slave
 import org.ivfun.alfred.app.repository.ApplicationRepository
 import org.ivfun.alfred.app.service.application.ApplicationService
 import org.ivfun.mrt.response.ResponseTreatment

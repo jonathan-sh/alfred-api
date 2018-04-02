@@ -15,14 +15,14 @@ import org.springframework.web.client.RestTemplate
  * DateTime: 2018-03-22 10:37
  **/
 @Service
-class SlackMessageImpl(val appConstant: AppConstant) : SlackMessage
+class SlackMessageImpl : SlackMessage
 {
     override
     fun send(build: Build): Boolean?
     {
         val restTemplate = RestTemplate()
-        val slack_wh_msg_url: String = appConstant.SLACK_WH_MSG_URL
-        val alfred_back_url: String = appConstant.ALFRED_BACK_URL
+        val slack_wh_msg_url: String = AppConstant.SLACK_WH_MSG_URL
+        val alfred_back_url: String = AppConstant.ALFRED_BACK_URL
         try
         {
             val mapOf = mapOf("attachments" to SlackMessageUtil.messageFromBuild(build, alfred_back_url))

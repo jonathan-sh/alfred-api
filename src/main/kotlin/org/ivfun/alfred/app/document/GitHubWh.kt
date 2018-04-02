@@ -16,7 +16,7 @@ data class GitHubWh
     var id_friendly: Long? = null,
     var ref: String? = null,
     val before: String? = null,
-    val event: String? = null,
+    var event: String? = null,
     val after: String? = null,
     val head_commit: GitHubWhHeadCommit? = null,
     val repository: GitHubWhRepository? = null,

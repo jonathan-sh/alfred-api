@@ -2,7 +2,7 @@
 #internal
 build_path=builds
 #external vars
-organization="solifftec"
+organization="organization"
 app_type=$1
 app_name=$2
 branch=$3

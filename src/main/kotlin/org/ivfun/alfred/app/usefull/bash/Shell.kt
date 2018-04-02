@@ -12,7 +12,6 @@ import java.util.*
  **/
 object Shell
 {
-
     fun run(command: String) = bash(command)
 
     fun run(command: List<String>) = command.forEach { c -> bash(c) }
