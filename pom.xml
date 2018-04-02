@@ -64,12 +64,6 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!--spring mail-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-
 		<!--kotlin jdk-->
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
@@ -101,16 +95,6 @@
             <artifactId>gson</artifactId>
             <version>2.8.0</version>
         </dependency>
-
-		<!-- deserialize date -->
-		<dependency>
-			<groupId>com.jayway.jsonpath</groupId>
-			<artifactId>json-path</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
 
 		<!--token jwt-->
 		<dependency>

@@ -1,8 +1,8 @@
 #!/bin/bash
 #internal vars
-git_user="Solinftec-TI"
-git_password="-28064212-Solinftec-Github"
-organization="solinftec"
+git_user="git_user"
+git_password="git_password"
+organization="organization"
 #alfred server url
 url="http://localhost:4212/v1"
 is_valid=0
